@@ -1,0 +1,76 @@
+# Lagged Seasonal Deficit of Biodegradable Organics in a Hot-Climate Sewer
+
+This repository contains the data and analysis code used to investigate seasonal variations in biodegradable organic matter within a municipal wastewater system and to evaluate the role of temperature-driven sewer processes. The workflow reproduces all analytical results presented in the associated study, including seasonal diagnostics, temperature-response analyses, process-model evaluation, and design-factor calculations.
+
+## Repository Structure
+
+```text
+project/
+│
+├── data/
+│   ├── ismailia.csv
+│   ├── era5_openmeteo.csv
+│   └── hannovil.xlsx
+│
+├── analysis.py
+├── era5_check.py
+├── sewer_model.py
+├── supp_checks.py
+├── design_factors.py
+│
+└── run_all.py
+
+Running the Analysis
+
+Install the required Python packages and execute the full workflow:
+
+pip install -r requirements.txt
+python run_all.py
+
+
+The complete analysis typically requires approximately one minute on a standard laptop.
+
+Analysis Workflow
+
+The scripts are executed in the following order by run_all.py.
+
+Script	Purposeanalysis.py	Computes daily load time series, seasonal climatology, seasonal phase relationships, lag analyses, season-adjusted temperature tests, dissolved oxygen and solids diagnostics, Ramadan event analyses, robustness assessments, and Hannovil plant statistics.
+era5_check.py	Evaluates consistency between plant temperature measurements and ERA5 air temperature data, performs lag analyses using ERA5 forcing, and conducts season-adjusted temperature tests.
+sewer_model.py	Implements sewer-temperature transfer modelling, kinetics-only and biomass-memory process models, parameter estimation, sensitivity analyses, out-of-sample validation, and per-capita consistency checks.
+supp_checks.py	Performs additional diagnostic and validation analyses supporting interpretation of dissolved oxygen behaviour and model timing characteristics.
+design_factors.py	Calculates monthly wastewater feedstock design factors and associated uncertainty estimates.
+Data Sources
+ismailia.csv
+
+Operational monitoring data from the Ismailia Sewage Treatment Plant covering the period 2000–2008.
+
+Farghaly, A. (2026). Ismailia Sewage Treatment Plant operational monitoring dataset, 2000–2008. Mendeley Data, Version 1.
+ https://doi.org/10.17632/bzppxc3ddx.1
+
+Licence: CC BY 4.0
+
+era5_openmeteo.csv
+
+Daily mean ERA5 2 m air temperature data for the study area (30.50°N, 32.25°E), obtained through the Open-Meteo Historical Weather API.
+
+Sources:
+
+Hersbach et al. (2020), ERA5 reanalysis
+Open-Meteo Historical Weather API
+
+Licence: CC BY 4.0
+
+hannovil.xlsx
+
+Monthly laboratory monitoring data from the Hannovil (Alagamy) wastewater treatment plant (2008–2009), used for independent comparative analyses.
+
+Notes
+A known sensor issue affects the plant temperature series during 2004. Consequently, ERA5-derived temperature data are used for inferential temperature analyses.
+Ramadan dates used in the event-study analyses are specified directly within the analysis scripts.
+Population-based calculations in the sewer model assume service to Ismailia City, using census-based demographic estimates and interpolation between census years.
+Reproducibility
+
+All analyses are deterministic. Fixed random seeds are used wherever permutation testing or Monte Carlo procedures are applied, ensuring exact reproducibility of reported numerical results.
+
+
+This version focuses entirely on the **data, analysis, modelling workflow, and reproducibility**, while removing all references to manuscript preparation, figure generation, graphical abstracts, and document-production scripts.
