@@ -146,8 +146,10 @@ Replace this provisional citation with the final bibliographic information when 
 
 ## Licence
 
-A repository-level licence should be specified before public release. Ensure that the selected licence covers the original analysis code and that the redistribution terms of all included datasets are respected. A repository licence does not override restrictions attached to third-party data.
 
+The original analysis code in this repository is released under the MIT License. See the `LICENSE` file for the full licence text.
+
+Third-party datasets remain subject to their respective licences, terms of use, attribution requirements, and applicable permissions. The MIT License does not extend to third-party data unless explicitly authorized by the relevant rights holders.
 ## Contact
 
 For questions regarding the analysis code or reproducibility of the study, please contact the corresponding author or open an issue in this repository.
